@@ -5,106 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Portfolio</title>
     <style>
-        /* Basic CSS3 Reset & Styling */
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
-            color: #333;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header {
-            background: #2d3436;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
         }
 
+        /* Navigation */
         nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 10%;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: #636e72;
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            font-weight: bold;
+            color: var(--text);
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: var(--transition);
         }
 
-        main {
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 10rem 10% 5rem;
+            background: white;
+        }
+
+        .hero-content {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        section {
-            margin-bottom: 40px;
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        /* Project Grid */
+        main {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         article {
-            border-left: 4px solid #0984e3;
-            padding-left: 15px;
-            margin-bottom: 20px;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
         }
 
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        article h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-weight: 600;
+        }
+
+        /* Footer */
         footer {
+            padding: 4rem 10%;
+            background: var(--dark);
+            color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #636e72;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            nav { padding: 1rem 5%; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Your Name</h1>
-        <p>Web Developer & Designer</p>
-    </header>
-
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div style="font-weight: 800; font-size: 1.2rem;">PORTFOLIO.</div>
+        <div>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="mailto:hello@example.com">Contact</a>
+        </div>
     </nav>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I am a passionate developer currently hosting my work on GitHub Pages. I love turning complex problems into simple, beautiful interface designs.</p>
-        </section>
+    <header>
+        <div class="hero-content">
+            <span class="section-title">Available for work</span>
+            <h1>Designer & Developer crafting digital experiences.</h1>
+            <p>I build clean, accessible, and high-performing websites. Currently focusing on modern HTML5 architecture and user-centered design.</p>
+            <a href="#work" class="btn">View My Projects</a>
+        </div>
+    </header>
 
-        <section id="projects">
-            <h2>Projects</h2>
+    <main id="work">
+        <span class="section-title">Selected Projects</span>
+        <div class="grid">
             
             <article>
-                <h3>Project One</h3>
-                <p>A brief description of what this project does and the HTML5/CSS3 techniques used.</p>
-                <a href="https://github.com/yourusername/project1">View Repository</a>
+                <span class="tag">Web App</span>
+                <h3 style="margin-top: 1rem;">Project Name One</h3>
+                <p>A data-driven dashboard focused on real-time analytics and clean visualization.</p>
+                <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600;">Case Study →</a>
             </article>
 
             <article>
-                <h3>Project Two</h3>
-                <p>Another awesome project that showcases my ability to build responsive web applications.</p>
-                <a href="https://github.com/yourusername/project2">View Repository</a>
+                <span class="tag">Open Source</span>
+                <h3 style="margin-top: 1rem;">Project Name Two</h3>
+                <p>A custom CSS library designed for rapid prototyping and accessibility compliance.</p>
+                <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600;">GitHub Repo →</a>
             </article>
-        </section>
 
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>You can reach me at: <strong>email@example.com</strong></p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+            <article>
+                <span class="tag">UI Design</span>
+                <h3 style="margin-top: 1rem;">Project Name Three</h3>
+                <p>Redesigning the e-commerce experience for a luxury
